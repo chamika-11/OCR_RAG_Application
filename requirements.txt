@@ -1,0 +1,16 @@
+opencv-python 
+pillow 
+pytesseract 
+numpy 
+fastapi 
+uvicorn
+streamlit
+easyocr
+python-multipart
+spacy
+langchain 
+openai 
+python-dotenv
+streamlit 
+pdf2image
+langchain-community
