@@ -13,4 +13,6 @@ openai
 python-dotenv
 streamlit 
 pdf2image
+langchain-together 
 langchain-community
+torchvision

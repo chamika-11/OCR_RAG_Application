@@ -1,15 +1,20 @@
 import os
-from langchain_community.llms import OpenAI
+from langchain_community.llms import Together
 from langchain.chains.question_answering import load_qa_chain
 from langchain.docstore.document import Document
-from env_loader import *
+from dotenv import load_dotenv
 
-def ask_question(text,question):
-    docs=[Document(page_content=text)]
+load_dotenv()
 
-    llm = OpenAI(temperature=0, model_name="gpt-3.5-turbo-instruct")
+def ask_question(text, question):
+    docs = [Document(page_content=text)]
+
+    llm = Together(
+        model="mistralai/Mistral-7B-Instruct-v0.1",
+        temperature=0.7,
+        max_tokens=512
+    )
+
     chain = load_qa_chain(llm, chain_type="stuff")
-
-    result=chain.run(input_documents=docs,question=question)
+    result = chain.run(input_documents=docs, question=question)
     return result
-    

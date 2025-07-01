@@ -1,5 +1,5 @@
 #build a model to classify scanned documents into types using image based features
-
+from PIL import Image 
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -40,7 +40,7 @@ def train_document_classifier(data_dir="data/classification", save_path='models/
             outputs=model(images)
             loss=criterion(outputs,labels)
 
-            optimizer.zero_grade()
+            optimizer.zero_grad()
             loss.backward()
             optimizer.step()
 
